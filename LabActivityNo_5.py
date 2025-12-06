@@ -20,15 +20,15 @@ try:
 
             cmd = input("Enter choice: ").lower()
 
-            if cmd == 'x':
-                print("Exiting program...")
-                break
-
-            if cmd in ['r', 'g', 'b', 'a', 'o']:
+            if cmd in ['r', 'g', 'b', 'a', 'o', 'x']:
                 ard.write(cmd.encode())  # Send byte to Arduino
                 ard.flush()  # Ensure command is sent immediately
                 print(f"Sent command: {cmd}")
                 time.sleep(0.05)  # Short delay for stability
+                if cmd == 'x':
+                print("Exiting program...")
+                break
+                
             else:
                 print("Invalid choice")
                 time.sleep(1)
